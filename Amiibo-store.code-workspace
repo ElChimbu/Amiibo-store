@@ -1,0 +1,17 @@
+{
+  "folders": [
+	{
+		"name": "Amiibo-store",
+		"path": "."
+	},
+	{
+		"name": "src",
+		"path": "..\\amiibo-stores\\src"
+	},
+	{
+		"name": "public",
+		"path": "..\\amiibo-stores\\public"
+	}
+],
+  "settings": {}
+}
