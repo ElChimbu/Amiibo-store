@@ -1,17 +1,22 @@
 import React from 'react'
 import { IncrementItems } from '../CartComponent'
+import common from '../../wordings/wording.json'
+import { Link } from 'react-router-dom'
+
 
 type CardProps = {
-img?: string
-amiiboName?: string
-price?: number
+img: string
+headtail: string
+amiiboName: string
+price: number
 }
 
 export default function Card({
   img,
+  headtail,
   amiiboName,
   price,
-}: CardProps) {
+}: CardProps) {  
   return (
     <div className="w-64 shadow-lg h-full rounded-sm flex flex-col justify-center items-center bg-slate-50">
       <div className='h-auto w-auto hover:bg-gray-700 ease-in-out transition-opacity duration-75 z-0'>  
@@ -24,9 +29,9 @@ export default function Card({
         <p>{price} USD</p>
       </div>
       <div className="flex flex-col text-center pb-3 select-none">
-          <IncrementItems/>
-          <button className='h-auto w-auto bg-green-600 text-white p-3 mt-3'>View product</button>
-          <button className='h-auto w-auto bg-sky-500 text-white p-3 mt-3'>Add to Cart</button>
+          <Link to={`/description/${headtail}`}>
+          <button className='h-auto w-auto bg-green-600 text-white p-3 mt-3'>{common.product.view_product}</button>
+          </Link>
       </div>
     </div>
   )

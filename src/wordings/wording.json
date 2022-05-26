@@ -1,6 +1,29 @@
 {
+  "title": "AMIIBO STORE",
+  "product": {
+    "view_product": "VIEW PRODUCT",
+    "add_to_cart": "ADD TO CART"
+  }, 
+  "product_resume": {
+    "title": "PRODUCT RESUME",
+    "name": "NAME:",
+    "type": "TYPE:",
+    "price": "PRICE:",
+    "view_product": "VIEW PRODUCT",
+    "add_to_cart": "ADD TO CART",
+    "go_to_cart": "Go to cart"
+  },
+  
+  "checkout": {
+    "title": "CHECKOUT",
+    "continue_shopping": "CONTINUE SHOPPING",
+    "continue_with_payment_method": "CONTINUE WITH THE PAYMENT METHOD",
+    "item_queantity": "NUMBER OF ITEMS:",
+    "shipping_cost": "COST OF SHIPPING:",
+    "total": "TOTAL:"
+  },
     "error": {
       "title": "Oops!, something gone wrong",
       "subtitle": "Try again, maybe the amiibo you are looking for does not exists"
     }
-  }
+}

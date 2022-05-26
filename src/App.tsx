@@ -1,23 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import Header from './components/HeaderComponent';
-import SkeletonLoading from './components/card/SkeletonLoading';
-import CartComponent from './components/CartComponent';
-import Home from './pages/Home';
+import React, { ReactElement } from 'react'
+import Home from './pages/Home/Home'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import ErrorPlaceholder from './pages/Error/index'
+import HomeIndex from './pages/Home'
+import CheckoutView from './pages/Checkout'
+import ItemResume from './pages/ItemResume'
 
-function App() {
+
+function App(): ReactElement {
   return (
-    <div className="App">
-      <Header/>
-      <div className='flex flex-wrap justify-center'>
-      <Home />
-      </div>
-      <div className='fixed bottom-3 xl:right-5 right-0 z-50'>
-      <CartComponent/>
-      </div>
-    </div>
-  );
+    <>
+    <Router>
+      <Routes>
+        <Route path="/Checkout" element={<CheckoutView/>} />
+        <Route path="/Description/:id" element={<ItemResume/>} />
+        <Route path="/" element={<HomeIndex/>} />
+        <Route element={<ErrorPlaceholder/>} />
+      </Routes>
+    </Router>
+    </>
+  )
 }
 
-export default App;
+export default App

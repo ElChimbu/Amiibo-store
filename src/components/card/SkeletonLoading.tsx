@@ -1,4 +1,6 @@
 import React from 'react'
+import LoaderIco from './LoaderIco'
+
 
 export default function SkeletonLoading() {
   return (

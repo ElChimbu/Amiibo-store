@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
-import Card from '../components/card/Card'
-import getAmiiboList from '../services/amiibo.service'
-import LoadingPlaceHolder from './LoadingPlaceHolder'
+import Card from '../../components/card/Card'
+import getAmiiboList from '../../services/amiibo.service'
+import LoadingPlaceHolder from '../LoadingPlaceHolder'
 
 
 export default function Home() {
@@ -28,9 +28,10 @@ useEffect(() =>{
       finished && amiiboList ?
       amiiboList.amiibo.map((res: any, i: number) => (
         <div className='m-4' key={i}>
+          <>
         <Card
-         img={res.image} amiiboName={res.character} price={3 + i * 4}
-        />
+         img={res.image} amiiboName={res.character} headtail={res.head + res.tail} price={3 + i * 4}/>         
+         </>
         </div>
       ))
     :

@@ -1,16 +1,21 @@
 import React from 'react'
-import CartComponent from './CartComponent'
-import { Link, useParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import common from '../wordings/wording.json'
+import { CartIco } from './CartComponent'
 
 export default function Header() {
   return (
-    <header className="sticky w-full shadow-md flex flex-col sm:flex-row justify-between items-center bg-white p-3 sm:px-10">
+    <header className="sticky w-full shadow-md flex justify-between items-center bg-white p-3 sm:px-10 select-none">
+        <Link to={'/'}>
         <h1 className="font-extrabold">
-          AMIIBO STORE
+          {common.title}
         </h1>
-      <nav className="flex flex-row list-none select-none">
-        
-      </nav>
+        </Link>
+        <div title={common.product_resume.go_to_cart}>
+          <Link to="/Checkout">
+          <CartIco/>
+          </Link>
+        </div>
     </header>
   )
 }

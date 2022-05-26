@@ -1,10 +1,16 @@
+import classNames from 'classnames'
 import React, {useState} from 'react'
-import LoaderIco from './LoaderIco'
+import { Link } from 'react-router-dom'
+import LoaderIco from './card/LoaderIco'
 
 
-function CartIco() {
+type ICartIco = {
+  cartColor?: string
+} 
+
+export function CartIco({cartColor}: ICartIco) {
   return (
-    <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <svg className={classNames(`w-10 h-10 ${cartColor !== "white" ? 'text-black': "text-white"}`)} fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 		<path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z">
 		</path>
 	</svg>
@@ -13,7 +19,7 @@ function CartIco() {
 
 function CartQuantityPin (){
   return (
-    <div className='w-7 h-7 -top-3 -right-1 rounded-full bg-red-900 absolute'>
+    <div className='w-7 h-7 -top-3 flex justify-center items-center -right-1 rounded-full bg-red-900 absolute'>
       <p className='text-white'>2</p>
     </div>
   )
@@ -41,7 +47,7 @@ return(
 
 }
 
-function CartItems(){
+export function CartItems(){
   return(
     <div className='w-full h-20 bg-gray-200 flex justify-around p-1'>
       <picture>
@@ -61,12 +67,13 @@ function CartItems(){
 function ShowModal(){
   return (
     <div className='max-h-96 overflow-scroll overflow-x-hidden w-96 xl:w-60 bg-gray-200 shadow-xl'>
-      <p className='font-bold'>Cart Preview</p>
+      <p className='font-bold w-full flex justify-center'>Cart Preview</p>
       <CartItems/>
-      
+      <Link to={'/Checkout'}>
       <button className='bg-green-700 hover:bg-green-800 text-white text-lg w-full h-auto px-4 py-2'>
-        Continue
+        Continue with Checkout
       </button>
+      </Link>
     </div>
   )
 }
@@ -84,7 +91,7 @@ export default function CartComponent() {
     <div className='w-auto h-16 relative' onClick={() => setShowModal(!showModal)}>
       <div className='absolute right-0'>
     <div className='w-16 h-16 bg-gray-900 hover:bg-gray-800 rounded-full flex justify-center items-center cursor-pointer'>
-      <CartIco />
+      <CartIco cartColor="white" />
     </div>
       <CartQuantityPin/>
       </div>
