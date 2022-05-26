@@ -27,12 +27,12 @@ useEffect(() =>{
       {
       finished && amiiboList ?
       amiiboList.amiibo.map((res: any, i: number) => (
-        <div className='m-4' key={i}>
+        <main className='m-4' key={i}>
           <>
         <Card
          img={res.image} amiiboName={res.character} headtail={res.head + res.tail} price={3 + i * 4}/>         
          </>
-        </div>
+        </main>
       ))
     :
     <LoadingPlaceHolder/>

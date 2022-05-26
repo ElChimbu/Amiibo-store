@@ -10,7 +10,7 @@ type ICartIco = {
 
 export function CartIco({cartColor}: ICartIco) {
   return (
-    <svg className={classNames(`w-10 h-10 ${cartColor !== "white" ? 'text-black': "text-white"}`)} fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <svg className={classNames(`w-10 h-10 ${cartColor !== "white" ? 'text-black': "text-white"} select-none`)} fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 		<path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z">
 		</path>
 	</svg>
@@ -66,7 +66,7 @@ export function CartItems(){
 
 function ShowModal(){
   return (
-    <div className='max-h-96 overflow-scroll overflow-x-hidden w-96 xl:w-60 bg-gray-200 shadow-xl'>
+    <div className='max-h-96 overflow-scroll overflow-x-hidden w-60 bg-gray-200 shadow-xl'>
       <p className='font-bold w-full flex justify-center'>Cart Preview</p>
       <CartItems/>
       <Link to={'/Checkout'}>
@@ -89,12 +89,12 @@ export default function CartComponent() {
     </div>
     }
     <div className='w-auto h-16 relative' onClick={() => setShowModal(!showModal)}>
-      <div className='absolute right-0'>
-    <div className='w-16 h-16 bg-gray-900 hover:bg-gray-800 rounded-full flex justify-center items-center cursor-pointer'>
-      <CartIco cartColor="white" />
-    </div>
-      <CartQuantityPin/>
+    <div className='absolute right-0'>
+      <div className='w-16 h-16 bg-gray-900 hover:bg-gray-800 rounded-full flex justify-center items-center cursor-pointer select-none'>
+        <CartIco cartColor="white" />
       </div>
+    <CartQuantityPin/>
+    </div>
     </div>
     </div>
   )

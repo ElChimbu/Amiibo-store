@@ -1,10 +1,11 @@
 import React, { ReactElement } from 'react'
 import Home from './pages/Home/Home'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import ErrorPlaceholder from './pages/Error/index'
+import ErrorPlaceholder from './pages/Error/ErrorPlaceholder'
 import HomeIndex from './pages/Home'
 import CheckoutView from './pages/Checkout'
 import ItemResume from './pages/ItemResume'
+import End from './pages/End/End'
 
 
 function App(): ReactElement {
@@ -14,8 +15,9 @@ function App(): ReactElement {
       <Routes>
         <Route path="/Checkout" element={<CheckoutView/>} />
         <Route path="/Description/:id" element={<ItemResume/>} />
+        <Route path="/End" element={<End/>} />
         <Route path="/" element={<HomeIndex/>} />
-        <Route element={<ErrorPlaceholder/>} />
+        <Route path='*' element={<ErrorPlaceholder></ErrorPlaceholder>} />
       </Routes>
     </Router>
     </>

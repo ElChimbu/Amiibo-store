@@ -4,6 +4,7 @@ import common from '../../wordings/wording.json'
 import { useParams } from 'react-router-dom'
 import { getAmiiboByHeadTail } from '../../services/amiibo.service'
 import ItemDescription from './ItemDescription'
+import CartComponent from '../../components/CartComponent'
 
 type IParams = {
   id: any
@@ -27,10 +28,7 @@ export default function ItemResume() : ReactElement {
     const res = await getAmiiboByHeadTail(id)
     setAmiibo(res)
     setfinished(true)
-  }
-
-  console.log(amiibo.amiibo);
-  
+  }  
 
   useEffect(() => {
     fetch()
@@ -40,10 +38,19 @@ export default function ItemResume() : ReactElement {
     <div>
     <Header/>
     {amiibo && finished ? 
-    <ItemDescription name={amiibo.amiibo.character} type={amiibo.amiibo.type}  price={price} image={amiibo.amiibo.image}/> 
+    <div className='py-4'>
+    <ItemDescription name={amiibo.amiibo.character} 
+                     type={amiibo.amiibo.type}  
+                     price={price} 
+                     image={amiibo.amiibo.image} 
+                     gameSeries={amiibo.amiibo.gameSeries}/> 
+    </div>
     : 
     <p>Loading...</p>  
     }
+    <div className='fixed bottom-3 xl:right-5 right-0 z-50'>
+      <CartComponent/>
+    </div>
     </div>
   )
 }
