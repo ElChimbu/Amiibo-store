@@ -1,20 +1,13 @@
 import React, {useEffect, useState, ReactElement} from 'react'
 import Header from '../../components/HeaderComponent'
-import common from '../../wordings/wording.json'
 import { useParams } from 'react-router-dom'
 import { getAmiiboByHeadTail } from '../../services/amiibo.service'
 import ItemDescription from './ItemDescription'
-import CartComponent from '../../components/CartComponent'
+import CartComponent from '../../components/cart/index'
 
 type IParams = {
   id: any
 }
-
-type IAmiibo = {
-  character: string,
-  type: string
-}
-
 
 export default function ItemResume() : ReactElement {
   const { id } = useParams<IParams>()
@@ -43,7 +36,9 @@ export default function ItemResume() : ReactElement {
                      type={amiibo.amiibo.type}  
                      price={price} 
                      image={amiibo.amiibo.image} 
-                     gameSeries={amiibo.amiibo.gameSeries}/> 
+                     gameSeries={amiibo.amiibo.gameSeries}
+                     headTail={id}
+                     /> 
     </div>
     : 
     <p>Loading...</p>  

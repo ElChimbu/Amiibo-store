@@ -1,18 +1,36 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import LoaderIco from '../../components/card/LoaderIco'
+import addToCartAction from '../../redux/action/addToCartAction'
 import common from '../../wordings/wording.json'
 
 
-type IDescriptcion = {
+export type IDescriptcion = {
   name: string,
   type: string,
   gameSeries: string,
   price: number,
-  image: string
+  image: string,
+  headTail: string
 } 
 
-export default function ItemDescription({name, type, price, image, gameSeries} : IDescriptcion) {
+export default function ItemDescription({name, type, price, image, gameSeries, headTail} : IDescriptcion) {
+  const dispatch = useDispatch()
+
+  function handleAdd () {
+    dispatch(addToCartAction.addToCart(
+      {
+      name,
+      type,
+      price,
+      image,
+      gameSeries,
+      headTail
+    }
+    ) as any)
+  }
+
   return (
     <div className='xl:w-full xl:p-10 h-auto flex sm:flex-col justify-center items-center select-none'>
         <div className='w-3/4 bg-white'>
@@ -33,7 +51,7 @@ export default function ItemDescription({name, type, price, image, gameSeries} :
               </div>
               <div className='flex flex-col items-center justify-center mb-2 lg:ml-10'>
                 <p className='text-3xl mb-3 lg:mb-10'>{common.product_resume.price} {price}$ </p>
-                <button className="w-auto h-auto p-4 bg-green-700 hover:bg-green-900 text-white">
+                <button onClick={() => handleAdd()} className="w-auto h-auto p-4 bg-green-700 hover:bg-green-900 text-white">
                 {common.product.add_to_cart}
                 </button>
               </div>

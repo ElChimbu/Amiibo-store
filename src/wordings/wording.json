@@ -14,7 +14,13 @@
     "add_to_cart": "ADD TO CART",
     "go_to_cart": "Go to cart"
   },
-  
+  "cart": {
+    "title": "CART PREVIEW",
+    "total": "TOTAL:",
+    "continue": "GO TO CHECKOUT",
+    "unit": "Unit",
+    "plural_unit": "Unit"
+  },
   "checkout": {
     "title": "CHECKOUT",
     "continue_shopping": "CONTINUE SHOPPING",

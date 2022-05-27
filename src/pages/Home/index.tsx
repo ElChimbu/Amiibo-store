@@ -1,5 +1,6 @@
 import React from 'react'
-import CartComponent from '../../components/CartComponent'
+import { useSelector } from 'react-redux'
+import CartComponent from '../../components/cart/index'
 import Header from '../../components/HeaderComponent'
 import Home from './Home'
 

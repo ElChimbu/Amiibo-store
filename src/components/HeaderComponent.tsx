@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import common from '../wordings/wording.json'
-import { CartIco } from './CartComponent'
+import { CartIco } from './cart/quantitySelector'
 
 export default function Header() {
   return (
