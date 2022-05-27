@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom'
 import LoaderIco from '../../components/card/LoaderIco'
 import addToCartAction from '../../redux/action/addToCartAction'
 import common from '../../wordings/wording.json'
+import uniqBy from 'lodash/uniqBy'
+import classNames from 'classnames'
 
 
 export type IDescriptcion = {
@@ -12,10 +14,12 @@ export type IDescriptcion = {
   gameSeries: string,
   price: number,
   image: string,
-  headTail: string
+  headTail: string,
+  quantity?: number,
+  added?: boolean
 } 
 
-export default function ItemDescription({name, type, price, image, gameSeries, headTail} : IDescriptcion) {
+export default function ItemDescription({name, type, price, image, gameSeries, headTail, added} : IDescriptcion) {
   const dispatch = useDispatch()
 
   function handleAdd () {
@@ -26,7 +30,8 @@ export default function ItemDescription({name, type, price, image, gameSeries, h
       price,
       image,
       gameSeries,
-      headTail
+      headTail,
+      quantity: 1,
     }
     ) as any)
   }
@@ -51,8 +56,8 @@ export default function ItemDescription({name, type, price, image, gameSeries, h
               </div>
               <div className='flex flex-col items-center justify-center mb-2 lg:ml-10'>
                 <p className='text-3xl mb-3 lg:mb-10'>{common.product_resume.price} {price}$ </p>
-                <button onClick={() => handleAdd()} className="w-auto h-auto p-4 bg-green-700 hover:bg-green-900 text-white">
-                {common.product.add_to_cart}
+                <button onClick={() => handleAdd()} className={classNames(`w-auto h-auto p-4 text-white ${added ? "bg-gray-700 pointer-events-none" : "bg-green-700 hover:bg-green-900"}`)}>
+                {added ? common.product_resume.added_to_cart : common.product_resume.add_to_cart}
                 </button>
               </div>
             </div>

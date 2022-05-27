@@ -12,6 +12,7 @@
     "price": "PRICE:",
     "view_product": "VIEW PRODUCT",
     "add_to_cart": "ADD TO CART",
+    "added_to_cart": "ADDED TO CART",
     "go_to_cart": "Go to cart"
   },
   "cart": {

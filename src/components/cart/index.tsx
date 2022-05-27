@@ -6,8 +6,6 @@ import { ShowModal } from './showModal'
 export default function CartComponent() {
   
     const [showModal, setShowModal] = useState(false)
-    const [lengthItems, setLenght] = useState(0)
-
     const cartData = useSelector((state: any) => {
       return state.cartRoot.cart
      })

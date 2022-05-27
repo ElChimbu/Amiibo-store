@@ -4,6 +4,9 @@ import { useParams } from 'react-router-dom'
 import { getAmiiboByHeadTail } from '../../services/amiibo.service'
 import ItemDescription from './ItemDescription'
 import CartComponent from '../../components/cart/index'
+import { useSelector } from 'react-redux'
+import { IDescriptcion } from '../../pages/ItemResume/ItemDescription'
+
 
 type IParams = {
   id: any
@@ -16,16 +19,29 @@ export default function ItemResume() : ReactElement {
 
   const [amiibo, setAmiibo] = useState<any>({})
   const [finished, setfinished] = useState(false)
+  const [added, setAdded] = useState(false)
+
+  const cartData = useSelector((state: any) => {
+    return state.cartRoot.cart
+   })   
 
   const fetch = async () => {
     const res = await getAmiiboByHeadTail(id)
     setAmiibo(res)
     setfinished(true)
+    
   }  
 
   useEffect(() => {
     fetch()
-  }, [finished])
+    if(cartData){
+    cartData.filter((data: IDescriptcion) => {
+      data.headTail === id && setAdded(true)
+    })
+  }
+  }, [finished, cartData])
+  
+  console.log(added);
   
   return (
     <div>
@@ -38,6 +54,7 @@ export default function ItemResume() : ReactElement {
                      image={amiibo.amiibo.image} 
                      gameSeries={amiibo.amiibo.gameSeries}
                      headTail={id}
+                     added={added}
                      /> 
     </div>
     : 

@@ -11,14 +11,13 @@ items : any[]
 
 export function ShowModal({items} : TShowModal){
     const Unitprice = 200
-    const quantity = 2
     return (
       <div className='max-h-96 overflow-scroll overflow-x-hidden w-60 bg-gray-200 shadow-xl'>
         <p className='font-bold w-full flex justify-center'>{common.cart.title}</p>
         {items.map((data : IDescriptcion) => {
-          return <CartItems name={data.name} quantity={quantity} price={Unitprice} totalPrice={Unitprice * quantity} img={data.image}/>
+          return <CartItems name={data.name} price={Unitprice} totalPrice={data.quantity && Unitprice * data.quantity} img={data.image} quantity={data.quantity}/>
         })}
-        <p className=' text-center text-lg my-3'>{common.cart.total} <span className='text-black'> {Unitprice * quantity} </span></p>
+        <p className=' text-center text-lg my-3'>{common.cart.total} <span className='text-black'> {"example"} </span></p>
         <Link to={'/Checkout'}>
         <button className='bg-green-700 whitespace-nowrap hover:bg-green-800 text-white text-lg w-full h-auto px-4 py-2'>
           {common.cart.continue}

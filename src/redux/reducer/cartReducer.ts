@@ -1,8 +1,12 @@
-const cartReducer = (state = {cart: []}, action : any) => {
+import uniqBy from 'lodash/uniqBy'
+
+const cartReducer = (state = {cart: <any>[]}, action : any) => {
     switch(action.type){
         case "ADD_TO_CART":
+        const filteredArr = uniqBy([...state.cart, action.payload], 'headTail')
+        
         return {
-            cart: [...state.cart, action.payload]
+            cart: [...filteredArr]
         }
         default:
          return state

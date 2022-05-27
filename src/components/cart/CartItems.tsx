@@ -7,10 +7,10 @@ import IncrementItems from './quantitySelector'
 
 type ICartItems = {
   name: string,
-  quantity: number,
+  quantity: number | undefined,
   price: number,
-  totalPrice: number
-  img: string
+  totalPrice: number | undefined,
+  img: string,
 }
 
 export default function CartItems({name, quantity, price, totalPrice, img}: ICartItems){
@@ -31,7 +31,7 @@ export default function CartItems({name, quantity, price, totalPrice, img}: ICar
         <p>
           {name}  
         </p>
-        <p>x{NewQuantity !== 0 ? NewQuantity : quantity} <span>({totalPrice}$)</span></p>
+        <p>x{quantity} <span>({totalPrice}$)</span></p>
         <IncrementItems updateUnits={updatedUnits} fixedNumber={quantityItems}/>
       </div>
     </div>
