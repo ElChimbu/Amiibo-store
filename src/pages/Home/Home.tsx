@@ -19,6 +19,8 @@ useEffect(() =>{
     fetch()
 },[finished] )
 
+console.log(amiiboList);
+
 
   return (
    <>
@@ -28,7 +30,7 @@ useEffect(() =>{
         <main className='m-4' key={i}>
           <>
         <Card
-         img={res.image} amiiboName={res.character} headtail={res.head + res.tail}/>         
+         img={res.image} amiiboName={res.character} amiiboSerie={res.amiiboSeries} headtail={res.head + res.tail}/>         
          </>
         </main>
       ))

@@ -11,9 +11,9 @@ export default function Header() {
    })
    
   return (
-    <header className="sticky w-full shadow-md flex justify-between items-center bg-white p-3 sm:px-10 select-none">
+    <header className="sticky w-full shadow-md flex justify-between items-center bg-red-700 p-3 sm:px-10 select-none">
         <Link to={'/'}>
-        <h1 className="font-extrabold">
+        <h1 className="font-extrabold text-white h-full w-full">
           {common.title}
         </h1>
         </Link>
@@ -21,9 +21,9 @@ export default function Header() {
           <Link to="/Checkout">
           <div className='relative'>
             {cartData.length > 0 && (
-            <div className='w-3 h-3 -right-0 rounded-full animate-ping absolute bg-red-500'/>
+            <div className='w-3 h-3 -right-0 rounded-full animate-ping absolute bg-blue-900'/>
             )}
-            <CartIco/>
+            <CartIco cartColor='white'/>
             </div>
           </Link>
         </div>

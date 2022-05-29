@@ -14,19 +14,7 @@ export default function SkeletonLoading() {
         <div className="h-12 flex flex-col justify-between">
           <div className="animate-pulse w-full h-5 bg-gray-400" />
           <div className="animate-pulse w-full h-5 bg-gray-400" />
-        </div>
-        <div className="mt-2 h-11 w-24 flex flex-col justify-between mx-auto">
-          <div className="animate-pulse w-full h-5 bg-gray-400" />
-          <div className="animate-pulse w-full h-5 bg-gray-400" />
-        </div>
-        <div className="mt-1 h-11 w-24 flex flex-col justify-between mx-auto">
-          <div className="animate-pulse w-full h-5 bg-gray-400" />
-          <div className="animate-pulse w-full h-5 bg-gray-400" />
-        </div>
-        <div className="mt-1 h-11 w-24 flex flex-col justify-between mx-auto">
-          <div className="animate-pulse w-full h-5 bg-gray-400" />
-          <div className="animate-pulse w-full h-5 bg-gray-400" />
-        </div>
+        </div>        
       </div>
     </div>
   )

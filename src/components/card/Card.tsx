@@ -9,6 +9,7 @@ type CardProps = {
 img: string
 headtail: string
 amiiboName: string,
+amiiboSerie: string,
 }
 
 
@@ -17,6 +18,7 @@ export default function Card({
   img,
   headtail,
   amiiboName,
+  amiiboSerie
 }: CardProps) { 
   
   const [added, setAdded] = useState(false)
@@ -49,6 +51,8 @@ export default function Card({
       <Link to={`/description/${headtail}`}>
       <div className="text-center flex flex-col items-center">
         <a className="text-xl font-bold cursor-pointer">{amiiboName}</a>
+        <p className='text-sm font-bold text-gray-500'>{common.product.from} <span className='text-black'>{amiiboSerie}</span></p>
+        <p></p>
       </div>
       </Link>
       <div className="flex flex-col text-center pb-3 select-none">

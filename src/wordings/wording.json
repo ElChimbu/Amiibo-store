@@ -3,7 +3,8 @@
   "product": {
     "view_product": "VIEW PRODUCT",
     "add_to_cart": "ADD TO CART",
-    "in_cart": "IN CART"
+    "in_cart": "IN CART",
+    "from": "from"
   }, 
   "product_resume": {
     "title": "PRODUCT RESUME",
