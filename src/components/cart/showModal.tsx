@@ -10,12 +10,19 @@ items : any[]
 }
 
 export function ShowModal({items} : TShowModal){
-    const Unitprice = 200
     return (
       <div className='max-h-96 overflow-scroll overflow-x-hidden w-60 bg-gray-200 shadow-xl'>
         <p className='font-bold w-full flex justify-center'>{common.cart.title}</p>
         {items.map((data : IDescriptcion) => {
-          return <CartItems name={data.name} price={Unitprice} totalPrice={data.quantity && Unitprice * data.quantity} img={data.image} quantity={data.quantity}/>
+          return  <div key={data.headTail}>
+          <CartItems name={data.name} 
+                            price={data.price} 
+                            totalPrice={data.quantity && data.price * data.quantity} 
+                            img={data.image} 
+                            quantity={data.quantity ? data.quantity : 0}
+                            headTail={data.headTail}
+                            />
+          </div>
         })}
         <p className=' text-center text-lg my-3'>{common.cart.total} <span className='text-black'> {"example"} </span></p>
         <Link to={'/Checkout'}>

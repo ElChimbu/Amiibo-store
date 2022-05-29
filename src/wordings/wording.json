@@ -2,13 +2,14 @@
   "title": "AMIIBO STORE",
   "product": {
     "view_product": "VIEW PRODUCT",
-    "add_to_cart": "ADD TO CART"
+    "add_to_cart": "ADD TO CART",
+    "in_cart": "IN CART"
   }, 
   "product_resume": {
     "title": "PRODUCT RESUME",
-    "name": "NAME:",
+    "name": "PRODUCT NAME:",
     "game_series": "GAME SERIES:",
-    "type": "TYPE:",
+    "type": "PRODUCT TYPE:",
     "price": "PRICE:",
     "view_product": "VIEW PRODUCT",
     "add_to_cart": "ADD TO CART",
@@ -19,8 +20,7 @@
     "title": "CART PREVIEW",
     "total": "TOTAL:",
     "continue": "GO TO CHECKOUT",
-    "unit": "Unit",
-    "plural_unit": "Unit"
+    "unit": "Unit"
   },
   "checkout": {
     "title": "CHECKOUT",

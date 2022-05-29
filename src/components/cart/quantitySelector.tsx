@@ -1,5 +1,7 @@
 import classNames from 'classnames'
 import React, {useState} from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import IncreaseAction from '../../redux/action/IncreaseDescrease'
 
 type TCartIco = {
     cartColor?: string
@@ -25,29 +27,38 @@ export function CartQuantityPin ({numberOfItems}: TQuantity){
       </div>
     )
   }
+export type TIncrementItems = {
+    headTail? : string,
+    quantity : number
+    }
+
+export default function IncrementItems({headTail, quantity} : TIncrementItems){
   
-  type TIncrementItems = {
-  fixedNumber? : number,
-  updateUnits?: (unit: number) => void
+  const dispatch = useDispatch()
+  const [Unit, setUnit] = useState(0)
+
+  function handleIncrease () {
+    setUnit(quantity + 1)
+    dispatch(IncreaseAction.increase({
+      headTail: headTail,
+      quantity: Unit
+    }) as any)
   }
-  
-  export default function IncrementItems({fixedNumber, updateUnits}: TIncrementItems ){
-    const [Unit, setUnit] = useState(0)
-  
+    
     return (
     <div className='flex w-full h-7 justify-between items-center'>
     <div 
-    onClick={() => Unit >= 1 && setUnit(fixedNumber && Unit === 0 ? fixedNumber - 1 : Unit - 1)}
+    onClick={() => (handleIncrease())}
     className='w-7 h-6 hover:bg-slate-800 hover:text-white bg-slate-400 flex justify-center items-center cursor-pointer'>
       -
     </div>
     <div>
       <p>
-      {fixedNumber && Unit === 0 ? fixedNumber : Unit }
+      {Unit !== 0 ? Unit : quantity}
       </p>
     </div>
     <div
-     onClick={() => setUnit(fixedNumber && Unit === 0 ? fixedNumber + 1 : Unit + 1)}
+     onClick={() => (setUnit(quantity ? quantity + 1 : 0 ), handleIncrease())}
      className='w-7 h-6 hover:bg-slate-800 hover:text-white bg-slate-400 flex justify-center items-center cursor-pointer'>
       +
     </div>

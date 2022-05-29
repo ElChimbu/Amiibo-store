@@ -11,7 +11,7 @@ type TCheckoutItems = {
 
 export default function CheckoutItems({name, img, units}: TCheckoutItems) {  
   return (
-    <div className='mt-10 w-full h-auto  hover:bg-gray-200 flex flex-col lg:flex-row justify-around p-2 items-center'>
+    <div className='mt-10 w-full h-auto hover:bg-gray-200 flex flex-col lg:flex-row justify-around p-2 items-center'>
       <picture>
         <img className=' w-16 h-22' src={img} alt={name} />
       </picture>
@@ -21,7 +21,7 @@ export default function CheckoutItems({name, img, units}: TCheckoutItems) {
         </p>
       </div>
       <div className='flex whitespace-nowrap w-40'>
-        <IncrementItems/>
+        <IncrementItems quantity={1}/>
       </div>
         <p className=''> x{units} {common.cart.unit} <span>(254.50$)</span></p>
     </div>

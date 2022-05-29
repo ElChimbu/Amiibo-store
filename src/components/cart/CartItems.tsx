@@ -1,26 +1,16 @@
 import React, { useState} from 'react'
-import { Link } from 'react-router-dom'
-import LoaderIco from '../card/LoaderIco'
 import IncrementItems from './quantitySelector'
-
-
 
 type ICartItems = {
   name: string,
-  quantity: number | undefined,
+  quantity: number,
   price: number,
   totalPrice: number | undefined,
   img: string,
+  headTail: string
 }
 
-export default function CartItems({name, quantity, price, totalPrice, img}: ICartItems){
-  const quantityItems = quantity !== 0 ? quantity : 0
-
-  const [NewQuantity, setNewQuantity] = useState(0)
-
-  function updatedUnits(unit: number){
-    setNewQuantity(unit)
-  }
+export default function CartItems({name, quantity, price, totalPrice, img, headTail}: ICartItems){
 
   return(
     <div className='w-full h-20 bg-gray-200 flex justify-around p-1'>
@@ -31,8 +21,8 @@ export default function CartItems({name, quantity, price, totalPrice, img}: ICar
         <p>
           {name}  
         </p>
-        <p>x{quantity} <span>({totalPrice}$)</span></p>
-        <IncrementItems updateUnits={updatedUnits} fixedNumber={quantityItems}/>
+        <p>x{quantity} <span>({quantity && quantity * price}$)</span></p>
+        <IncrementItems quantity={quantity} headTail={headTail} />
       </div>
     </div>
   )
