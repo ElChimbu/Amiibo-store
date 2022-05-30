@@ -13,7 +13,7 @@ export default function CartComponent() {
     return (
       <div className='flex flex-col flex-start select-none'>
       {showModal && 
-      <div className='mb-5'>
+      <div className='mb-5 border border-gray-300'>
       <ShowModal items={cartData}/>
       </div>
       }

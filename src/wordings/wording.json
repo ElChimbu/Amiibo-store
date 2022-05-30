@@ -21,7 +21,8 @@
     "title": "CART PREVIEW",
     "total": "TOTAL:",
     "continue": "GO TO CHECKOUT",
-    "unit": "Unit"
+    "unit": "Unit",
+    "remove": "Remove from cart"
   },
   "checkout": {
     "title": "CHECKOUT",

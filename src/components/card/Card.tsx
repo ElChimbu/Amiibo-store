@@ -35,7 +35,7 @@ export default function Card({
     }}, [added, cartData])
     
   return (
-    <div className="w-64 relative shadow-lg h-full rounded-sm flex flex-col justify-center items-center bg-slate-50 select-none">
+    <div className="w-64 relative p-2 shadow-lg h-full rounded-sm flex flex-col justify-center items-center bg-slate-50 select-none">
       { added &&
       <div className='bg-red-700 left-0 absolute top-0 px-5 font-bold w-auto h-auto text-lg text-white text-center'>
         {common.product.in_cart}

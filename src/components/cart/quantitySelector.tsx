@@ -35,30 +35,31 @@ export type TIncrementItems = {
 export default function IncrementItems({headTail, quantity} : TIncrementItems){
   
   const dispatch = useDispatch()
-  const [Unit, setUnit] = useState(0)
+  const [Unit, setUnit] = useState(1)
 
-  function handleIncrease () {
-    setUnit(quantity + 1)
+  function handleIncrease (operationType : string) {    
+    operationType === "increase" ? setUnit(quantity + 1) : setUnit(quantity - 1)
     dispatch(IncreaseAction.increase({
       headTail: headTail,
       quantity: Unit
     }) as any)
   }
+  
     
     return (
-    <div className='flex w-full h-7 justify-between items-center'>
+    <div className='flex w-24 h-7 justify-between items-center'>
     <div 
-    onClick={() => (handleIncrease())}
+    onClick={() => (handleIncrease("decrease"))}
     className='w-7 h-6 hover:bg-slate-800 hover:text-white bg-slate-400 flex justify-center items-center cursor-pointer'>
       -
     </div>
     <div>
       <p>
-      {Unit !== 0 ? Unit : quantity}
+      {quantity}
       </p>
     </div>
     <div
-     onClick={() => (setUnit(quantity ? quantity + 1 : 0 ), handleIncrease())}
+     onClick={() => (setUnit(quantity ? quantity + 1 : 0 ), handleIncrease("increase"))}
      className='w-7 h-6 hover:bg-slate-800 hover:text-white bg-slate-400 flex justify-center items-center cursor-pointer'>
       +
     </div>

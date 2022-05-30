@@ -19,9 +19,6 @@ useEffect(() =>{
     fetch()
 },[finished] )
 
-console.log(amiiboList);
-
-
   return (
    <>
       {

@@ -11,9 +11,9 @@ export default function Header() {
    })
    
   return (
-    <header className="sticky w-full shadow-md flex justify-between items-center bg-red-700 p-3 sm:px-10 select-none">
+    <header className="sticky w-full shadow-md flex justify-between items-center bg-red-700 sm:px-10 select-none">
         <Link to={'/'}>
-        <h1 className="font-extrabold text-white h-full w-full">
+        <h1 className="font-extrabold text-white h-full w-full p-5">
           {common.title}
         </h1>
         </Link>
